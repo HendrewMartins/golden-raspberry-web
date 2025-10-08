@@ -1,0 +1,33 @@
+name: Deploy Angular App to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Build do projeto Angular
+        run: npm run build -- --configuration production --base-href "/golden-raspberry-web/"
+
+      - name: Deploy para GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist/golden-raspberry-web
