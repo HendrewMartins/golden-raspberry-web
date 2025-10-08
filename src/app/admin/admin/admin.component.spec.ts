@@ -1,29 +1,28 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AdminComponent } from './admin.component';
-import { MaterialModule } from '../../modules/material.module';
-import { RouterModule, Routes } from '@angular/router';
-import { By } from '@angular/platform-browser';
+import { RouterTestingModule } from '@angular/router/testing';
 import { Component } from '@angular/core';
+import { By } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
+
+@Component({
+  standalone: true,
+  template: ''
+})
+class DummyComponent {}
 
 describe('AdminComponent', () => {
-  let component: AdminComponent;
   let fixture: ComponentFixture<AdminComponent>;
-
-
-  @Component({ template: '' })
-  class DummyComponent {}
-
-  const routes: Routes = [
-    { path: 'admin/dashboard', component: DummyComponent },
-    { path: 'admin/movies', component: DummyComponent },
-  ];
+  let component: AdminComponent;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AdminComponent, DummyComponent],
       imports: [
-        MaterialModule,
-        RouterModule.forRoot(routes)
+        AdminComponent,
+        RouterTestingModule.withRoutes([
+          { path: 'admin/dashboard', component: DummyComponent },
+          { path: 'admin/movies', component: DummyComponent },
+        ])
       ]
     }).compileComponents();
 
@@ -32,21 +31,19 @@ describe('AdminComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create the admin component', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 
   it('should have a link to /admin/dashboard', () => {
-    const debugElement = fixture.debugElement.queryAll(By.css('a.link'))
-      .find(de => de.attributes['ng-reflect-router-link'] === '/admin/dashboard');
-
-    expect(debugElement).toBeTruthy();
+    const links = fixture.debugElement.queryAll(By.directive(RouterLink));
+    const routerLinks = links.map(de => (de.injector.get(RouterLink) as any).linkParams);
+    expect(routerLinks).toContain(['/admin/dashboard']);
   });
 
   it('should have a link to /admin/movies', () => {
-    const debugElement = fixture.debugElement.queryAll(By.css('a.link'))
-      .find(de => de.attributes['ng-reflect-router-link'] === '/admin/movies');
-
-    expect(debugElement).toBeTruthy();
+    const links = fixture.debugElement.queryAll(By.directive(RouterLink));
+    const routerLinks = links.map(de => (de.injector.get(RouterLink) as any).linkParams);
+    expect(routerLinks).toContain(['/admin/movies']);
   });
 });
