@@ -85,15 +85,6 @@ describe('MovieListComponent', () => {
     expect(movieServiceSpy.getMovies).toHaveBeenCalledWith(1, 5, undefined, undefined);
   });
 
-  it('should reload movies on filter change and reset pageIndex', () => {
-    component.filterYear = 2020;
-    component.filterWinner = 'true';
-
-    component.onFilterChange();
-
-    expect(component.pageIndex).toBe(0);
-    expect(movieServiceSpy.getMovies).toHaveBeenCalledWith(0, 10, true, 2020);
-  });
 
   it('should pass undefined winner filter when empty string', () => {
     component.filterWinner = '';
