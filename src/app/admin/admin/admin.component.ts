@@ -17,9 +17,9 @@ import { MaterialModule } from '../../modules/material.module';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css'],
   imports: [
-        MaterialModule,
-        RouterModule
-      ],
+    MaterialModule,
+    RouterModule
+  ],
 })
 export class AdminComponent implements OnInit {
 

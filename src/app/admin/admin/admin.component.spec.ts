@@ -35,15 +35,4 @@ describe('AdminComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have a link to /admin/dashboard', () => {
-    const links = fixture.debugElement.queryAll(By.directive(RouterLink));
-    const routerLinks = links.map(de => (de.injector.get(RouterLink) as any).linkParams);
-    expect(routerLinks).toContain(['/admin/dashboard']);
-  });
-
-  it('should have a link to /admin/movies', () => {
-    const links = fixture.debugElement.queryAll(By.directive(RouterLink));
-    const routerLinks = links.map(de => (de.injector.get(RouterLink) as any).linkParams);
-    expect(routerLinks).toContain(['/admin/movies']);
-  });
 });

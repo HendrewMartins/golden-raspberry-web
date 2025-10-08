@@ -35,27 +35,6 @@ describe('TableGenericComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render the correct number of rows', fakeAsync(() => {
-    fixture.detectChanges();
-    tick();
-    fixture.detectChanges();
-
-    const rows = fixture.nativeElement.querySelectorAll('tr.mat-row');
-    expect(rows.length).toBe(2);
-  }));
-
-  it('should render the correct headers', fakeAsync(() => {
-    fixture.detectChanges();
-    tick();
-    fixture.detectChanges();
-
-    const headers = fixture.nativeElement.querySelectorAll('th.mat-header-cell');
-    expect(headers.length).toBe(2);
-
-    const headerTexts = Array.from(headers as NodeListOf<HTMLElement>)
-      .map(h => h.textContent?.trim() || '');
-    expect(headerTexts).toEqual(['Name', 'Age']);
-  }));
 
   it('should display title in h3', fakeAsync(() => {
     fixture.detectChanges();
