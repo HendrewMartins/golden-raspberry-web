@@ -11,6 +11,11 @@ export const routes: Routes = [
         path: 'movies',
         loadComponent: () =>
           import('./modules/list/movie-list.component').then(m => m.MovieListComponent)
+      },
+      {
+        path: 'dashboard',
+        loadComponent: () =>
+          import('./modules/dashboard/movie-dashboard.component').then(m => m.MovieDashboardComponent)
       }
     ]
   }

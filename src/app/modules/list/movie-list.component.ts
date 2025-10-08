@@ -7,8 +7,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { Movie } from './model/movie';
+import { Movie } from '../../model/movie';
 import { MovieService } from '../service/movie.service';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-movie-list',
@@ -21,7 +22,8 @@ import { MovieService } from '../service/movie.service';
     MatInputModule,
     MatSelectModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.scss']
