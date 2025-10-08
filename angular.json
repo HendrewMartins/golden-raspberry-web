@@ -31,7 +31,9 @@
             ],
             "styles": [
               "src/styles.scss"
-            ]
+            ],
+            "outputPath": "dist/golden-raspberry-web",
+            "baseHref": "/golden-raspberry-web/"
           },
           "configurations": {
             "production": {
