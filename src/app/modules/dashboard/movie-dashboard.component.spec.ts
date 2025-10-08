@@ -13,7 +13,7 @@ import { MovieWinner } from '../../model/movie-winner';
 
 
 const mockYears = [{ year: 2000, winnerCount: 2 }];
-const mockStudios = [{ name: 'Studio A', winCount: 5 }];
+const mockStudios = [{ name: 'Studio A', winCount: 5 },{ name: 'Studio B', winCount: 4 }, { name: 'Studio C', winCount: 3 }];
 const mockIntervals = {
   max: [{ producer: 'Producer A', interval: 10, previousWin: 1990, followingWin: 2000 }],
   min: [{ producer: 'Producer B', interval: 1, previousWin: 2010, followingWin: 2011 }]
