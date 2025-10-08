@@ -5,7 +5,7 @@ import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-table-generic',
-    standalone: true,
+  standalone: true,
   imports: [
     CommonModule,
     MatTableModule,
@@ -16,7 +16,7 @@ import { MatTableModule } from '@angular/material/table';
 })
 export class TableGenericComponent {
   @Input() title!: string;
-  @Input() columns!: {def: string, header: string}[];
+  @Input() columns!: { def: string, header: string }[];
   @Input() data: any[] = [];
 
   get displayedColumns() {

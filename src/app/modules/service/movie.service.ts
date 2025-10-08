@@ -34,21 +34,17 @@ export class MovieService {
     return this.http.get<MovieResponse>(`${this.baseUrl}/movies`, { params });
   }
 
-
   getYearsWithMultipleWinners(): Observable<{ years: YearWithMultipleWinners[] }> {
     return this.http.get<{ years: YearWithMultipleWinners[] }>(`${this.baseUrl}/movies/yearsWithMultipleWinners`);
   }
-
 
   getTopStudiosWithWinCount(): Observable<{ studios: StudioWithWinCount[] }> {
     return this.http.get<{ studios: StudioWithWinCount[] }>(`${this.baseUrl}/movies/studiosWithWinCount`);
   }
 
-
   getWinIntervals(): Observable<WinIntervalResponse> {
     return this.http.get<WinIntervalResponse>(`${this.baseUrl}/movies/maxMinWinIntervalForProducers`);
   }
-
 
   getWinnersByYear(year: number): Observable<MovieWinner[] | MovieWinner> {
     const params = new HttpParams().set('year', year.toString());
@@ -56,5 +52,3 @@ export class MovieService {
   }
 
 }
-
-

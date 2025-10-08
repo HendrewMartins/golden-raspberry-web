@@ -12,32 +12,32 @@ import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
-    imports: [
-        MatToolbarModule,
-        MatButtonModule,
-        MatIconModule,
-        MatSidenavModule,
-        MatListModule,
-        MatCardModule,
-        MatInputModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        MatMenuModule,
-    ],
-    exports: [
-        MatToolbarModule,
-        MatButtonModule,
-        MatIconModule,
-        MatSidenavModule,
-        MatListModule,
-        MatCardModule,
-        MatInputModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        MatMenuModule,
-    ],
-    declarations: [
-    ]
+  imports: [
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatMenuModule,
+  ],
+  exports: [
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatMenuModule,
+  ],
+  declarations: [
+  ]
 })
 export class MaterialModule {
 

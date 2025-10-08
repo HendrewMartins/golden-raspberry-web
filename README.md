@@ -52,7 +52,7 @@ src/
 
 ### 📦 Pré-requisitos
 
-- [Node.js](https://nodejs.org/) v18 ou superior
+- [Node.js](https://nodejs.org/) v20 ou superior
 - [Angular CLI](https://angular.io/cli) (global) – opcional: `npm install -g @angular/cli`
 
 ### 🧰 Instalação

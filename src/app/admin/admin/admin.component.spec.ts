@@ -2,14 +2,12 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AdminComponent } from './admin.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Component } from '@angular/core';
-import { By } from '@angular/platform-browser';
-import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
   template: ''
 })
-class DummyComponent {}
+class DummyComponent { }
 
 describe('AdminComponent', () => {
   let fixture: ComponentFixture<AdminComponent>;

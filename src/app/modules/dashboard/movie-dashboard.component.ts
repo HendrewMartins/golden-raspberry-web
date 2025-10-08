@@ -50,7 +50,7 @@ export class MovieDashboardComponent {
 
   loadDashboardData() {
     this.movieService.getYearsWithMultipleWinners().subscribe(res => this.years = res.years);
-    this.movieService.getTopStudiosWithWinCount().subscribe(res => this.studios = res.studios);
+    this.movieService.getTopStudiosWithWinCount().subscribe(res => this.studios = res.studios.slice(0, 3));
     this.movieService.getWinIntervals().subscribe(res => this.intervals = res);
   }
 

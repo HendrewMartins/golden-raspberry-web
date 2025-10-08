@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Movie } from '../../model/movie';
 import { MovieService } from '../service/movie.service';
 import { MatCardModule } from '@angular/material/card';
+import { debounceTime, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-movie-list',
@@ -29,6 +30,8 @@ import { MatCardModule } from '@angular/material/card';
   styleUrls: ['./movie-list.component.scss']
 })
 export class MovieListComponent implements OnInit {
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   movies: Movie[] = [];
   displayedColumns = ['id', 'year', 'title', 'winner'];
   totalElements = 0;
@@ -38,12 +41,19 @@ export class MovieListComponent implements OnInit {
   filterYear: number | null = null;
   filterWinner: string = '';
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  private filterSubject = new Subject<number>();
 
-  constructor(private movieService: MovieService) {}
+  constructor(private movieService: MovieService) { }
 
   ngOnInit() {
     this.loadMovies();
+
+    this.filterSubject
+      .pipe(debounceTime(500))
+      .subscribe(() => {
+        this.pageIndex = 0;
+        this.loadMovies();
+      });
   }
 
   loadMovies() {
@@ -61,8 +71,12 @@ export class MovieListComponent implements OnInit {
     this.loadMovies();
   }
 
+
   onFilterChange() {
-    this.pageIndex = 0;
-    this.loadMovies();
+    this.filterSubject.next(this.filterYear ?? 0);
+  }
+
+  ngOnDestroy() {
+    this.filterSubject.unsubscribe();
   }
 }
