@@ -11,7 +11,7 @@
     ]" [data]="studios">
   </app-table-generic>
 
-  <mat-card class="panel dark-panel">
+  <mat-card class="panel">
     <h3>Producers with longest and shortest interval between wins</h3>
 
     <app-table-generic [title]="'Maximum'" [columns]="[
@@ -31,8 +31,8 @@
     </app-table-generic>
   </mat-card>
 
-  <mat-card class="panel dark-panel">
-    <h3 class="panel-title"s>List movie winners by year</h3>
+  <mat-card class="panel">
+    <h3>List movie winners by year</h3>
     <div style="display: flex; align-items: center; gap: 8px;">
       <mat-form-field appearance="outline" style="flex: 1;">
         <input matInput placeholder="Search by year" [(ngModel)]="searchYear" />

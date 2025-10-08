@@ -62,7 +62,7 @@ export class MovieListComponent implements OnInit {
   }
 
   onFilterChange() {
-    this.pageIndex = 0; // reset para primeira página
+    this.pageIndex = 0;
     this.loadMovies();
   }
 }

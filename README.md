@@ -104,10 +104,15 @@ O app estará disponível em: [http://localhost:4200/#](http://localhost:4200/#)
 
 ---
 
-## 🧪 Testes (caso tenha)
+## 🧪 Testes
 
-> Ainda não implementado. Sugestão: utilizar `Jest` ou `Karma` com `Jasmine`.
+Para rodar os testes unitários do projeto, utilize o comando abaixo. O Angular utiliza o Karma e Jasmine por padrão.
 
+```bash
+npm test
+# ou
+ng test
+```
 ---
 
 ## 👨‍💻 Autor
